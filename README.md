@@ -14,3 +14,8 @@
 	
 ### 报表采用 WPF DataGrid
 详见：http://www.cnblogs.com/xiaogangqq123/archive/2012/05/07/2487166.html
+
+
+### 1 每个设备都会在程序初始化的时候建立一个ComConnection ,然后通过发命令sendCommands（），
+	2 读取数据getDevsData （设备类）
+	3 解析数据，放入阿里云消息队列 sendMsg（Aliyun_ons.cs）
