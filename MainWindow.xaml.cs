@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication2.View.Windows;
 
 /**
  * 亭子程序说明
@@ -453,13 +454,13 @@ namespace PavilionMonitor
             // 开启循环数据请求线程  一个线程对应一个连接            
             // 创建网络连接对象，关联设备
             connection_list = new List<COMConnection>();
-            for (int k = 0; k < device_num; k++)
-            {
-                COMConnection dev_con = new COMConnection(device_list[k]);
-                connection_list.Add(dev_con);
-                dev_con.NewMonitorData += DBHelper.InsertSqlToQueue;
-                dev_con.StartConnection(); // 开启请求数据线程 
-            }
+            //for (int k = 0; k < device_num; k++)
+            //{
+            //    COMConnection dev_con = new COMConnection(device_list[k]);
+            //    connection_list.Add(dev_con);
+            //    dev_con.NewMonitorData += DBHelper.InsertSqlToQueue;
+            //    dev_con.StartConnection(); // 开启请求数据线程 
+            //}
             //启动数据库操作
             DBHelper.startDbThread();
 
@@ -557,6 +558,26 @@ namespace PavilionMonitor
             real_window.Show();
 
 
+        }
+
+        
+        /// <summary>
+        /// 右键查看实时数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ViewRealtimeCurve_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(sender.ToString());
+        }
+ 
+        /// <summary>
+        /// 右键查看历史数据，可以使报表或者曲线
+        /// </summary>
+        private void AsmViewHistory_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow w = new HistoryWindow();
+            w.Show();
         }
 
     }

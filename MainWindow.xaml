@@ -7,6 +7,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
+       
         <!--单击右键,弹出实时曲线对话框-->
         <Grid Grid.Row="0" Background="BurlyWood">
             <Grid.RowDefinitions>
@@ -22,7 +23,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Name="chaoda" Background="#FFFFFFFF" MouseDown="chaoda_MouseDown">
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Name="chaoda" Background="#FFFFFFFF" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="30"/>
@@ -96,6 +97,7 @@
 
 
             <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Margin="5,5,5,5"  Background="#FFFFFFFF" Name="qirongjiao">
+               
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="70"  />
@@ -121,6 +123,12 @@
                     <ColumnDefinition Width="128"/>
                     <ColumnDefinition Width="128"/>
                 </Grid.ColumnDefinitions>
+                <Grid.ContextMenu >
+                    <!--Background="#FF565656" BorderBrush="#FF565656"   Background="#FF565656" -->
+                    <ContextMenu >
+                        <MenuItem Header="查询历史记录" Name="AsmViewHistory" BorderBrush="#FF565656" Click="AsmViewHistory_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
                 <TextBlock Text="气溶胶"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="11" FontWeight="Bold"  />
                 <TextBlock Text="" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10" FontWeight="Bold" Name="ASM02_Status" />
                 <TextBlock Text="Ab"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  FontWeight="Bold"  />

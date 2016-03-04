@@ -90,3 +90,6 @@ E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\GenerateResource.re
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\GenerateResource.write.1.tlog
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\PavilionMonitor.exe
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\PavilionMonitor.pdb
+E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\WPFSamplesLib.dll
+E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\Windows\HistoryWindow.baml
+E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\Windows\HistoryWindow.g.cs
