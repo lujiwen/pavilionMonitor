@@ -1,0 +1,421 @@
+﻿<Window x:Class="PavilionMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Name="window"
+        Title="监测亭子系统" Height="850" Width="1310">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--单击右键,弹出实时曲线对话框-->
+        <Grid Grid.Row="0" Background="BurlyWood">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="170"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220*"/>
+                <ColumnDefinition Width="220*"/>
+                <ColumnDefinition Width="220*"/>
+                <ColumnDefinition Width="220*"/>
+                <ColumnDefinition Width="220*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Name="chaoda" Background="#FFFFFFFF" MouseDown="chaoda_MouseDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="超大流量" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold"  />
+                <TextBlock Text="d" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="JL900_Status" />
+                <TextBlock Text="压力值Pa" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  />
+                <TextBlock Text="瞬时流量m^3/h" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"  />
+                <TextBlock Text="采样体积m^3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" />
+                <TextBlock Text="采样时间" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"  />
+
+                <TextBlock Text="10" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Foreground="#FF3399FF" Name="JL900_Presure" />
+                <TextBlock Text="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Foreground="#FF3399FF"  Name="JL900_RealTraffic" />
+                <TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Foreground="#FF3399FF"  Name="JL900_Volume" />
+                <TextBlock Text="0:40:34" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Foreground="#FF3399FF"  Name="JL900_Keeptime"  />
+
+            </Grid>
+
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5"  Background="#FFFFFFFF" Name="ganshi">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="干湿沉降"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1" FontWeight="Bold" Margin="1.36,0,101.36,4.88"  />
+                <TextBlock Text="d" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="DryWet_Status" />
+                <TextBlock Text="盖子状态" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  />
+                <TextBlock Text="下雨状态" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"  />
+                <TextBlock Text="降雨时间 分钟" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" />
+
+                <TextBlock Text="开盖" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Foreground="#FF3399FF" Name="DryWet_CabState" />
+                <TextBlock Text="降雨" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Foreground="#FF3399FF"  Name="DryWet_RainyState" />
+                <TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Foreground="#FF3399FF"  Name="DryWet_RainyTime" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="2" Margin="5,5,5,5"  Background="#FFFFFFFF" Name="rs131">
+                <StackPanel HorizontalAlignment="Center" Width="{Binding Path=ActualWidth,ElementName=rs131}" >
+                    <TextBlock Text="RS131" HorizontalAlignment="Center"  FontWeight="Bold"  />
+                    <TextBlock Text="" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="RS131_Status" />
+                </StackPanel>
+            </Grid>
+
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="3" Margin="5,5,5,5"  Background="#FFFFFFFF" Name="yuliangji">
+                <StackPanel HorizontalAlignment="Center" Width="{Binding Path=ActualWidth,ElementName=yuliangji}" >
+                    <TextBlock Text="雨量计" HorizontalAlignment="Center"  FontWeight="Bold" />
+                    <TextBlock Text="" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="YuLiangji_Status" />
+                </StackPanel>
+            </Grid>
+
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="4" Margin="5,5,5,5"  Background="#FFFFFFFF" Name="quanchuan">
+                <StackPanel HorizontalAlignment="Center" Width="{Binding Path=ActualWidth,ElementName=quanchuan}" >
+                    <TextBlock Text="全氚取样器" HorizontalAlignment="Center" FontWeight="Bold"  />
+                    <TextBlock Text="" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="QuanChuan_Status" />
+                </StackPanel>
+            </Grid>
+
+
+            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Margin="5,5,5,5"  Background="#FFFFFFFF" Name="qirongjiao">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="70"  />
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="128"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="气溶胶"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="11" FontWeight="Bold"  />
+                <TextBlock Text="" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10" FontWeight="Bold" Name="ASM02_Status" />
+                <TextBlock Text="Ab"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Ec"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Fl"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Ga"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Gi"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Me"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Oi"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"  FontWeight="Bold"  />
+                <TextBlock Text="Rn"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" Grid.Column="0"  FontWeight="Bold"  />
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="1" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="2" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="3" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="4" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="5" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="6" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="7" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="8" VerticalAlignment="Top" Width="1300"/>
+                <Separator Grid.ColumnSpan="11" HorizontalAlignment="Left" Height="3" Margin="8,0.2,-5.2,0" Grid.Row="9" VerticalAlignment="Top" Width="1300"/>
+
+                <!--第一行-->
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <TextBlock Text="Artificial α min. Concentration" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" />
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="2">
+                    <TextBlock Text="Artificial α max. Concentration" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" />
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="3">
+                    <TextBlock Text="Deviation of α Concentration" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" />
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Artificial α LD<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial β<LineBreak/>Concentration min</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Artificial β<LineBreak/>Concentration max</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="7">
+                    <TextBlock Text="Deviation of β Concentration" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" />
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_7" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial β LD<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ab_8" />
+                </StackPanel>
+
+                <!--第二行-->
+                <StackPanel Grid.Row="2" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Filter NO.<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Detector ID<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Isotope<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">ByHalfLifeCorrected Activity[Bq]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Deviation of Activity [%]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Measured Activity [Bq]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="7">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" > Deviation of Measures [%]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_7" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >DeviationFromCorrected Activity [%]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ec_8" />
+                </StackPanel>
+
+
+                <!--第三行-->
+                <StackPanel Grid.Row="3" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Elapsed Cycle Time sec</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Flow Volume m3<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Inlet Temp.°C<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Int. Temp °C<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Cryo.Temp.°C<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Flow.resistance R1 <LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="7">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Flow.resistance R2 <LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_7" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Flow.resistance R3 <LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_8" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="9">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Aer. filter No.<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_9" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="10">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Iod filter No.<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="fl_10" />
+                </StackPanel>
+
+
+                <!--第四行-->
+                <StackPanel Grid.Row="4" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Nuclide of Contamination</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial min. Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial max. Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Deviation of Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Cs-137 LD<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Cs-137 Equ..Conc.min</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="7">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" > Cs-137 Equ..Conc.max</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="ga_7" />
+                </StackPanel>
+
+
+                <!--第五行-->
+                <StackPanel Grid.Row="5" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Nuclide of Contamination</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial min.Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial max.Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Deviation of Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >I-131 LD.<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">I-131 Equ.Conc.min<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="7">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" > I-131Equ..Conc.max<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="gi_7" />
+                </StackPanel>
+
+                <!--第六行-->
+                <StackPanel Grid.Row="6" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Dose-rate(Sv/h)<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Rain<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Rain Status<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="4">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Temperature1(°C)<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Temperature2(°C)<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Direction of Wind(°)<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="7">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Velocity of Wind(m/s)</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_7" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="8">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Pressure(mBar)<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_8" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Relative Humidity(%)</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_9" />
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="10">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Container Temperature(°C)</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="me_10" />
+                </StackPanel>
+
+                <!--第七行-->
+                <StackPanel Grid.Row="7" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Nuclide of Contamination</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial min.Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Artificial max.Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Deviation of Concentration</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >I-131 LD.<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">I-131 Equ.Conc.min<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_6" />
+                </StackPanel>
+                <StackPanel Grid.Row="7" Grid.Column="7">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" > I-131Equ..Conc.max<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="oi_7" />
+                </StackPanel>
+
+
+                <!--第八行-->
+                <StackPanel Grid.Row="8" Grid.Column="1">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Radom EEC<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="rn_1" />
+                </StackPanel>
+                <StackPanel Grid.Row="8" Grid.Column="2">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Radom EEC Deviation[%]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="rn_2" />
+                </StackPanel>
+                <StackPanel Grid.Row="8" Grid.Column="3">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Radon LD<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="rn_3" />
+                </StackPanel>
+                <StackPanel Grid.Row="8" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Thoron EEC<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="rn_4" />
+                </StackPanel>
+                <StackPanel Grid.Row="8" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" >Thoron EEC Deviation[%]</TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="rn_5" />
+                </StackPanel>
+                <StackPanel Grid.Row="8" Grid.Column="6">
+                    <TextBlock  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5">Thoron LD<LineBreak/></TextBlock>
+                    <TextBlock Text="3.12e23" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Foreground="#FF3399FF" Name="rn_6" />
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

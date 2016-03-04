@@ -1,0 +1,41 @@
+﻿<Window x:Class="PavilionMonitor.RealTimeCurve"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="实时曲线" Height="510" Width="842" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="solidTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style x:Key="changedTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="326*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="180,2,192,0" Width="264">
+            <TextBlock Text="设备名称" Background="White" Style="{StaticResource solidTextStyle}" Height="22" Margin="5" />
+            <TextBlock Name="devname" Style="{StaticResource changedTextStyle}" Width="198"  />
+        </StackPanel>
+        <!--实时曲线区域-->
+        <StackPanel Name="realTimeCurves" Grid.Row="1" Margin="5"/>
+    </Grid>
+</Window>
