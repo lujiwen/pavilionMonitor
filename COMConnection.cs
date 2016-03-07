@@ -12,7 +12,6 @@ using System.Collections.ObjectModel;
 namespace PavilionMonitor
 {
     public delegate void NewMonitorDevsDataSqlEvent(String s);//更新实时曲线使用的委托
- //   public delegate void NewMonitorDevsDataAliyunUpdate();//阿里云待中转数据更新的委托
     public class COMConnection : Connection
     {
         /**
@@ -34,8 +33,6 @@ namespace PavilionMonitor
         Socket socket;//socket连接
         Byte[] receiveBuffer = new Byte[512];//接受数据缓冲区 每个设备的接收缓冲区  待确定？
         Thread rdthread; //线程
-
-
 
         NewMonitorDevsDataSqlEvent newMonitorData;
         public COMConnection(DevicePavilion device)
