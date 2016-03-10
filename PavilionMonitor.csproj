@@ -119,6 +119,7 @@
     <Compile Include="RealTimeCurve.xaml.cs">
       <DependentUpon>RealTimeCurve.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Utils.cs" />
     <Compile Include="VisifireChart.cs" />
     <Compile Include="Windows\HistoryWindow.xaml.cs">
       <DependentUpon>HistoryWindow.xaml</DependentUpon>
@@ -141,7 +142,7 @@
     <Compile Include="RSS131.cs" />
     <Compile Include="H3R7000.cs" />
     <Compile Include="JL900.cs" />
-    <Compile Include="LogUtil.cs" />
+    <Compile Include="Utils\LogUtil.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
