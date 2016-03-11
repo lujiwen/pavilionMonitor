@@ -37,7 +37,7 @@
                     <ColumnDefinition Width="100*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="超大流量" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold"  />
-                <TextBlock Text="d" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="JL900_Status" />
+                <TextBlock Text="status" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="JL900_Status" />
                 <TextBlock Text="压力值Pa" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  />
                 <TextBlock Text="瞬时流量m^3/h" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"  />
                 <TextBlock Text="采样体积m^3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" />
@@ -64,7 +64,7 @@
                     <ColumnDefinition Width="100*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="干湿沉降"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1" FontWeight="Bold" Margin="1.36,0,101.36,4.88"  />
-                <TextBlock Text="d" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="DryWet_Status" />
+                <TextBlock Text="status" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" Name="DryWet_Status" />
                 <TextBlock Text="盖子状态" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"  />
                 <TextBlock Text="下雨状态" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"  />
                 <TextBlock Text="降雨时间 分钟" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" />

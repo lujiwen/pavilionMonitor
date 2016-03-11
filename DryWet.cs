@@ -89,7 +89,7 @@ namespace PavilionMonitor
         public override bool isDataRight(byte[] flowBytes,int len)
         {
             bool dataright = true;
-
+            return dataright;
             if (len > 18&& len<25) // 返回长度18-20之间
                 return dataright;
             else

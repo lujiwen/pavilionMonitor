@@ -436,9 +436,10 @@ namespace PavilionMonitor
             //    int cc = te_arr[i].IndexOf(':') + 1;
             //    string result = te_arr[i].Substring(cc, te_arr[i].Length - cc);
             //    string[] re_arrrs = result.Split(',');
-            //    for (int k = 0; k < re_arrrs.Length; k++) { 
-            //        string outputs=re_arrrs[k];
-            //        LogUtil.Log(1,outputs,"ff");
+            //    for (int k = 0; k < re_arrrs.Length; k++)
+            //    {
+            //        string outputs = re_arrrs[k];
+            //        LogUtil.Log(1, outputs, "ff");
             //    }
             //}
 

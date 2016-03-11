@@ -73,6 +73,7 @@ E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\AmCharts.Windows.Qu
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\DynamicDataDisplay.dll
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\ManagedONS.dll
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\MySql.Data.dll
+E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\WPFSamplesLib.dll
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\WPFToolkit.dll
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\WPFVisifire.Charts.dll
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\Xceed.Wpf.Toolkit.dll
@@ -80,8 +81,10 @@ E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\ManagedONS.pdb
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\ResolveAssemblyReference.cache
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\MainWindow.baml
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\RealTimeCurve.baml
+E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\Windows\HistoryWindow.baml
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\MainWindow.g.cs
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\RealTimeCurve.g.cs
+E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\Windows\HistoryWindow.g.cs
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\App.g.cs
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\PavilionMonitor_MarkupCompile.cache
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\PavilionMonitor.g.resources
@@ -90,6 +93,3 @@ E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\GenerateResource.re
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\GenerateResource.write.1.tlog
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\PavilionMonitor.exe
 E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\PavilionMonitor.pdb
-E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\bin\Debug\WPFSamplesLib.dll
-E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\Windows\HistoryWindow.baml
-E:\PavilionMonitor\PavilionMonitor\PavilionMonitor\obj\Debug\Windows\HistoryWindow.g.cs

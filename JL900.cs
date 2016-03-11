@@ -109,8 +109,9 @@ namespace PavilionMonitor
 
         public override bool isDataRight(byte[] flowBytes,int len)
         {
-            bool dataright = true;
 
+            bool dataright = true;
+            return dataright;
             if ( len == 26) // 不能仅仅用长度判断
                 return dataright;
             else
