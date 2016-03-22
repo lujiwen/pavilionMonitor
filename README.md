@@ -1,32 +1,39 @@
 # pavilionMonitor
-##´ÓmysqlÊý¾Ý¿âÀïÀ´¶ÁÉè±¸µÄipºÍ¶Ë¿ÚºÅ £¬ÏÖÔÚµÄmysql·þÎñÆ÷ÔÚÊµÑéÊÒ192.168.1.200 ½ÚµãÉÏ
-## Ê¹ÓÃtcp/udpµ÷ÊÔÓÃ¾ß À´´´½¨socketÁ¬½Ó£¨¶Ë¿ÚºÅ·Ö±ðÊÇ£º5000,4005,4001£© £¬À´·¢ËÍÊý¾Ý
-## ·¢ËÍÊý¾Ý£¬Ê¹ÓÃÎÒÃÇÖ®Ç°É½¸çÓÊ¼þÀïÃæµÄµÄÃüÁîºÍ·µ»ØµÄÊý¾Ý¸ñÊ½£¬Ñ­»··¢ËÍÀ´½øÐÐ²âÊÔ
-## ÖÁ´ËÊý¾ÝÁ÷ÍêÈ«×ßÍ¨
+
+ ä»Žmysqlæ•°æ®åº“é‡Œæ¥è¯»è®¾å¤‡çš„ipå’Œç«¯å£å· ï¼ŒçŽ°åœ¨çš„mysqlæœåŠ¡å™¨åœ¨å®žéªŒå®¤192.168.1.200 èŠ‚ç‚¹ä¸Š
+ ä½¿ç”¨tcp/udpè°ƒè¯•ç”¨å…· æ¥åˆ›å»ºsocketè¿žæŽ¥ï¼ˆç«¯å£å·åˆ†åˆ«æ˜¯ï¼š5000,4005,4001ï¼‰ ï¼Œæ¥å‘é€æ•°æ®
+ å‘é€æ•°æ®ï¼Œä½¿ç”¨æˆ‘ä»¬ä¹‹å‰å±±å“¥é‚®ä»¶é‡Œé¢çš„çš„å‘½ä»¤å’Œè¿”å›žçš„æ•°æ®æ ¼å¼ï¼Œå¾ªçŽ¯å‘é€æ¥è¿›è¡Œæµ‹è¯•
+ è‡³æ­¤æ•°æ®æµå®Œå…¨èµ°é€š
 
 
-###ÓÒ¼üµã³ö²Ëµ¥£¬ÐèÒªÔÚxmlÎÄ¼þÐ´ÈëÀàËÆÏÂÃæµÄÄÚÈÝ£º
+#å³é”®ç‚¹å‡ºèœå•ï¼Œéœ€è¦åœ¨xmlæ–‡ä»¶å†™å…¥ç±»ä¼¼ä¸‹é¢çš„å†…å®¹ï¼š
+
         <Grid.ContextMenu >
             <ContextMenu Background="#FF565656" BorderBrush="#FF565656" >
-                <MenuItem Header="²ÎÊýÉèÖÃ"  Background="#FF565656" Click="settings_btn_Click" Foreground="White" />
-                <MenuItem Header="²é¿´ÀúÊ·ÇúÏß" Background="#FF565656"  Click="history_btn_Click"  Foreground="White" BorderBrush="#FF565656" />
+                <MenuItem Header="å‚æ•°è®¾ç½®"  Background="#FF565656" Click="settings_btn_Click" Foreground="White" />
+                <MenuItem Header="æŸ¥çœ‹åŽ†å²æ›²çº¿" Background="#FF565656"  Click="history_btn_Click"  Foreground="White" BorderBrush="#FF565656" />
             </ContextMenu>
         </Grid.ContextMenu>
 		
-	È»ºó¾ßÌåµã»÷ÊÂ¼þ£¬ÊµÏÖClick="some_event" 
+	ç„¶åŽå…·ä½“ç‚¹å‡»äº‹ä»¶ï¼Œå®žçŽ°Click="some_event" 
 	
 	
-### ±¨±í²ÉÓÃ WPF DataGrid
-Ïê¼û£ºhttp://www.cnblogs.com/xiaogangqq123/archive/2012/05/07/2487166.html
+### æŠ¥è¡¨é‡‡ç”¨ WPF DataGrid
+
+è¯¦è§ï¼šhttp://www.cnblogs.com/xiaogangqq123/archive/2012/05/07/2487166.html
 
 
-### 1 Ã¿¸öÉè±¸¶¼»áÔÚ³ÌÐò³õÊ¼»¯µÄÊ±ºò½¨Á¢Ò»¸öComConnection ,È»ºóÍ¨¹ý·¢ÃüÁîsendCommands£¨£©£¬
-###	2 ¶ÁÈ¡Êý¾ÝgetDevsData £¨Éè±¸Àà£©
-###	3 ½âÎöÊý¾Ý£¬·ÅÈë°¢ÀïÔÆÏûÏ¢¶ÓÁÐ sendMsg£¨Aliyun_ons.cs£©,Ã¿¹ý10s ¶¼»á½«ËùÓÐÉè±¸µÄÐÅÏ¢´ò°ü³É"<package><DeviceDataBox_DryWet systemId=\"\" cabId=\"\" devId=\"\" cab_state=\"\" rainy_state=\"\" rain_time=\"\" state=\"Normal\" unit=\"\" highThreshold=\"\" lowThreshold=\"\" factor=\"\" /><DeviceDataBox_JL900 systemId=\"\" cabId=\"\" devId=\"\" presure=\"\" real_traffic=\"\" sample_volume=\"\" keep_time=\"\" state=\"Normal\" unit=\"\" highThreshold=\"\" lowThreshold=\"\" factor=\"\" /><DeviceDataASM02Box systemId=\"\" cabId=\"\" devId=\"\" val_str_set=\"\" state=\"Normal\" unit=\"\" highThreshold=\"\" lowThreshold=\"\" factor=\"\" /></package>"
-ÕâÑùµÄÐÎÊ½£¬·¢¸ø°¢ÀïÔÆÏûÏ¢¶ÓÁÐ .
+# æºç æ­¥éª¤
+
+1 æ¯ä¸ªè®¾å¤‡éƒ½ä¼šåœ¨ç¨‹åºåˆå§‹åŒ–çš„æ—¶å€™å»ºç«‹ä¸€ä¸ªComConnection ,ç„¶åŽé€šè¿‡å‘å‘½ä»¤sendCommandsï¼ˆï¼‰ï¼Œ
+
+2 è¯»å–æ•°æ®getDevsData ï¼ˆè®¾å¤‡ç±»ï¼‰
+
+3 è§£æžæ•°æ®ï¼Œæ”¾å…¥é˜¿é‡Œäº‘æ¶ˆæ¯é˜Ÿåˆ— sendMsgï¼ˆAliyun_ons.csï¼‰,æ¯è¿‡10s éƒ½ä¼šå°†æ‰€æœ‰è®¾å¤‡çš„ä¿¡æ¯æ‰“åŒ…æˆ"<package><DeviceDataBox_DryWet systemId=\"\" cabId=\"\" devId=\"\" cab_state=\"\" rainy_state=\"\" rain_time=\"\" state=\"Normal\" unit=\"\" highThreshold=\"\" lowThreshold=\"\" factor=\"\" /><DeviceDataBox_JL900 systemId=\"\" cabId=\"\" devId=\"\" presure=\"\" real_traffic=\"\" sample_volume=\"\" keep_time=\"\" state=\"Normal\" unit=\"\" highThreshold=\"\" lowThreshold=\"\" factor=\"\" /><DeviceDataASM02Box systemId=\"\" cabId=\"\" devId=\"\" val_str_set=\"\" state=\"Normal\" unit=\"\" highThreshold=\"\" lowThreshold=\"\" factor=\"\" /></package>"
+è¿™æ ·çš„å½¢å¼ï¼Œå‘ç»™é˜¿é‡Œäº‘æ¶ˆæ¯é˜Ÿåˆ— .
 	
 
-²âÊÔÊý¾Ý£º
+#æµ‹è¯•æ•°æ®ï¼š
 	
 4001 JL900
 
@@ -44,7 +51,7 @@
 
 ASM 5000 
 
-Ä¿Ç°´æÔÚµÄÎÊÌâ£º 
-jl900 £¬drywet Á½¸öÉè±¸ÔÚ½ÓÊÜÊý¾ÝµÄÊ±ºò½øÐÐµÄÕýÎó¼ì²éÊÇ·ñÕýÈ·£¬»¹ÐèÒª½øÒ»²½·ÖÎö¡£
+ç›®å‰å­˜åœ¨çš„é—®é¢˜ï¼š 
+jl900 ï¼Œdrywet ä¸¤ä¸ªè®¾å¤‡åœ¨æŽ¥å—æ•°æ®çš„æ—¶å€™è¿›è¡Œçš„æ­£è¯¯æ£€æŸ¥æ˜¯å¦æ­£ç¡®ï¼Œè¿˜éœ€è¦è¿›ä¸€æ­¥åˆ†æžã€‚
 
 	
